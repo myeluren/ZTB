@@ -7,7 +7,6 @@ nul
 .claude
 .codebuddy
 cloudbaserc.json
-vercel.json
 
 # 上传文件
 server/uploads/*
