@@ -30,6 +30,17 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: '服务运行中' })
 })
 
+// 服务前端静态文件
+const distPath = path.join(__dirname, '../dist')
+if (fs.existsSync(distPath)) {
+  app.use(express.static(distPath))
+
+  // SPA 回退路由
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(distPath, 'index.html'))
+  })
+}
+
 app.listen(PORT, () => {
   console.log(`服务器运行在 http://localhost:${PORT}`)
 })

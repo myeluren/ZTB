@@ -2,20 +2,17 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# 安装 pnpm
-RUN npm install -g pnpm
-
 # 复制 package 文件
-COPY package*.json pnpm-lock.yaml ./
+COPY package*.json ./
 
 # 安装依赖
-RUN pnpm install
+RUN npm install
 
 # 复制源代码
 COPY . .
 
 # 构建前端
-RUN pnpm run build
+RUN npm run build
 
 # 暴露端口
 EXPOSE 3001
