@@ -1,0 +1,49 @@
+{
+  "name": "bid-generator",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node server/index.js"
+  },
+  "dependencies": {
+    "@cloudbase/js-sdk": "^2.3.0",
+    "axios": "^1.7.7",
+    "better-sqlite3": "^12.6.2",
+    "cors": "^2.8.5",
+    "docx": "^9.0.2",
+    "express": "^4.21.0",
+    "form-data": "^4.0.0",
+    "mammoth": "^1.11.0",
+    "multer": "^1.4.5-lts.1",
+    "openai": "^4.63.0",
+    "pdf-parse": "^2.4.5",
+    "pdfkit": "^0.15.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tdesign-icons-react": "^0.5.0",
+    "tdesign-react": "^1.12.0"
+  },
+  "devDependencies": {
+    "@cloudbase/framework-plugin-node": "^1.9.7",
+    "@cloudbase/framework-plugin-website": "^1.9.7",
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.5.5",
+    "@types/pdfkit": "^0.13.4",
+    "@types/react": "^18.3.9",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
+    "less": "^4.3.0",
+    "postcss": "^8.5.0",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss": "^3.4.17",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.7"
+  }
+}

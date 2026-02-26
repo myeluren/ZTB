@@ -1,0 +1,16 @@
+{
+  "analysisConfig": {
+    "provider": "自定义",
+    "officialUrl": "https://platform.minimaxi.com",
+    "baseUrl": "https://api.minimaxi.com/v1",
+    "apiKey": "sk-cp-vM-hPRnazIV_6n0yH96P70BoPILiE6VZ-AcAJMeEeU1siGnXkNssBUmsSoy5FQclGrqNwvFl7yoCX4oqJQW3cRncICInnxQiKmVJk9WCZOJbxigRY0bD8jo",
+    "model": "MiniMax-M2.1"
+  },
+  "generationConfig": {
+    "provider": "自定义",
+    "officialUrl": "https://platform.minimaxi.com",
+    "baseUrl": "https://api.minimaxi.com/v1",
+    "apiKey": "sk-cp-vM-hPRnazIV_6n0yH96P70BoPILiE6VZ-AcAJMeEeU1siGnXkNssBUmsSoy5FQclGrqNwvFl7yoCX4oqJQW3cRncICInnxQiKmVJk9WCZOJbxigRY0bD8jo",
+    "model": "MiniMax-M2.1"
+  }
+}
