@@ -1,16 +1,16 @@
 {
   "analysisConfig": {
     "provider": "自定义",
-    "officialUrl": "",
-    "baseUrl": "",
-    "apiKey": "",
-    "model": ""
+    "officialUrl": "https://platform.minimaxi.com",
+    "baseUrl": "https://api.minimaxi.com/v1",
+    "apiKey": "YOUR_API_KEY_HERE",
+    "model": "MiniMax-M2.5"
   },
   "generationConfig": {
     "provider": "自定义",
-    "officialUrl": "",
-    "baseUrl": "",
-    "apiKey": "",
-    "model": ""
+    "officialUrl": "https://platform.minimaxi.com",
+    "baseUrl": "https://api.minimaxi.com/v1",
+    "apiKey": "YOUR_API_KEY_HERE",
+    "model": "MiniMax-M2.5"
   }
 }

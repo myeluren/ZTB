@@ -4,6 +4,7 @@ import path from 'path'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
 import apiRouter from './routes/api.js'
+import { recoverPendingTasks } from './services/taskManager.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -41,6 +42,9 @@ if (fs.existsSync(distPath)) {
   })
 }
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`服务器运行在 http://localhost:${PORT}`)
+
+  // 服务启动后恢复未完成的任务
+  await recoverPendingTasks()
 })

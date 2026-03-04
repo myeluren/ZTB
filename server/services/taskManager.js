@@ -253,3 +253,52 @@ export function deleteTask(taskId) {
 
   console.log(`任务 ${taskId} 已删除`)
 }
+
+// 获取所有未完成的任务（用于服务启动时恢复）
+export function getPendingTasks() {
+  const stmt = db.prepare(`
+    SELECT * FROM tasks
+    WHERE status IN ('pending', 'running', 'paused')
+    ORDER BY created_at ASC
+  `)
+  return stmt.all()
+}
+
+// 恢复所有未完成的任务
+export async function recoverPendingTasks() {
+  const pendingTasks = getPendingTasks()
+
+  if (pendingTasks.length === 0) {
+    console.log('没有需要恢复的任务')
+    return
+  }
+
+  console.log(`发现 ${pendingTasks.length} 个未完成的任务，开始恢复...`)
+
+  // 用于记录哪些任务需要恢复执行
+  const tasksToRun = []
+
+  for (const task of pendingTasks) {
+    // 如果任务状态是 running，说明服务异常退出，将其改为 pending
+    if (task.status === 'running') {
+      console.log(`任务 ${task.id} 状态从 running 改为 pending`)
+      updateTaskStatus(task.id, 'pending')
+      tasksToRun.push(task.id)
+    } else if (task.status === 'pending') {
+      tasksToRun.push(task.id)
+    }
+    // paused 状态的任务不自动恢复，需要用户手动点击继续
+  }
+
+  // 依次执行所有需要恢复的任务（间隔3秒，避免并发）
+  for (const taskId of tasksToRun) {
+    try {
+      // 延迟执行，避免启动时瞬间压力过大
+      await new Promise(resolve => setTimeout(resolve, 3000))
+      console.log(`开始恢复执行任务 ${taskId}`)
+      await startTask(taskId)
+    } catch (error) {
+      console.error(`恢复任务 ${taskId} 失败:`, error.message)
+    }
+  }
+}
